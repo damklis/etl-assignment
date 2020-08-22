@@ -12,7 +12,7 @@ class ETLJob:
             self._execute_pipeline()
             return "SUCCESS"
         except Exception as err:
-            print(err)
+            print(f"Error message: {err}")
             return "FAILED"
 
     def _execute_pipeline(self):
