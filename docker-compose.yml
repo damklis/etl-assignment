@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+    postgres:
+        container_name: postgres
+        image: postgres:9.6
+        environment:
+            - POSTGRES_USER=etl
+            - POSTGRES_PASSWORD=etl
+            - POSTGRES_DB=transformations
+        ports:
+            - "5432:5432"
+        logging:
+            options:
+                max-size: 10m
+                max-file: "3"
