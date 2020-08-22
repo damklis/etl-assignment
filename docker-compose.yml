@@ -4,9 +4,11 @@ services:
         container_name: postgres
         image: postgres:9.6
         environment:
-            - POSTGRES_USER=etl_admin
-            - POSTGRES_PASSWORD=admin
+            - POSTGRES_USER=etl
+            - POSTGRES_PASSWORD=etl
             - POSTGRES_DB=transformations
+        ports:
+            - "5432:5432"
         logging:
             options:
                 max-size: 10m

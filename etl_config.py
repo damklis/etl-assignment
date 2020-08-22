@@ -4,6 +4,7 @@ import os
 class Config:
     
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    
     DATA_DIR = os.path.join(BASE_DIR, "data")
 
     FILES = [
@@ -20,3 +21,13 @@ class Config:
             "sep": ";"
         }
     ]
+
+    POSTGRES_CONFIG = {
+        "user": "etl", 
+        "password": "etl", 
+        "host": "localhost", 
+        "port": "5432", 
+        "db": "transformations"
+    }
+
+    POSTGRES_SCHEMA = "tests"

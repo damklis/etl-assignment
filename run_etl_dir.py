@@ -33,5 +33,5 @@ def run_etl_dir():
     print(f"Job status: {status}")
 
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     run_etl_dir()
