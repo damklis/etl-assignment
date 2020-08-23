@@ -1,11 +1,15 @@
 import pandas as pd
 
+from .log import log
 
+
+@log
 class DataSetExtractor:
     def __init__(self, files):
         self._files = files
         
     def extract_dataset(self):
+        self.logger.info("Extracting datasets")
         test_df, test_lvl_df, class_df = self.load_files()
         dataset = self.concatenate_files(
             test_df, test_lvl_df, class_df
