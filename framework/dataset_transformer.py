@@ -1,12 +1,15 @@
 import pandas as pd
-import numpy as np
+
+from .log import log
 
 
+@log
 class DataSetTransformer:
     def __init__(self, transformation):
         self.transformation = transformation
         
     def transform_dataset(self, df):
+        self.logger.info("Transforming dataset")
         _df = df[df['authorized_at'].notnull()] 
         _df.columns = self.format_column_names(df)
         tmp_df = self.convert_test_dates(_df)
