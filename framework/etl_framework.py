@@ -1,6 +1,10 @@
 from time import time
 
 
+from .log import log
+
+
+@log
 class ETLJob:
     def __init__(self, extractor, transformer, loader):
         self.extractor = extractor
@@ -12,7 +16,7 @@ class ETLJob:
             self._execute_pipeline()
             return "SUCCESS"
         except Exception as err:
-            print(f"Error message: {err}")
+            self.logger.warning(f"Error message: {err}")
             return "FAILED"
 
     def _execute_pipeline(self):
