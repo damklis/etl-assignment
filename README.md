@@ -50,7 +50,7 @@ python run_etl.py --destination db --transformation test_utilization
 
 ```
 
-Aviaible options:
+Available options:
 
 - destination - `db` (postgres database) or `dir` (local directory, default)
 
