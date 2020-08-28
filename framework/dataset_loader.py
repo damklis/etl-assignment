@@ -12,12 +12,12 @@ class DataSetDirectoryLoader:
         )
     
     def create_data_path(self, data_dir, filename):
-        self.logger.info(f"Saving {filename} file into `{data_dir}`")
         if not filename.endswith(".csv"):
             return os.path.join(data_dir, f"{filename}.csv")
         return os.path.join(data_dir, filename)
 
     def load_dataset(self, dataset):
+        self.logger.info(f"Saving `{self._path}`")
         dataset.to_csv(
             path_or_buf=self._path,
             sep=";",

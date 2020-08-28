@@ -21,18 +21,18 @@ def parse_args():
 @time_func
 def run_etl_dir():
     args = parse_args()
-    logger = Logger().get_logger(
-        f"ETL with {args.destination} destination"
-    )
+    logger = Logger().get_logger(f"ETL destination: {args.destination}")
 
     extractor = DataSetExtractor(cfg.FILES)
     transformer = DataSetTransformer(args.transformation)
     if args.destination == "dir":
         loader = DataSetDirectoryLoader(cfg.DATA_DIR, args.transformation)
-    else:
+    elif args.destination == "db":
         loader = DataSetDBLoader(
             cfg.POSTGRES_SCHEMA, args.transformation, cfg.POSTGRES_CONFIG
         )
+    else:
+        raise ValueError("Destination unknown")
 
     etl = ETLJob(
         extractor=extractor, transformer=transformer, loader=loader
